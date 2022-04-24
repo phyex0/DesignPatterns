@@ -94,6 +94,8 @@ public class BarChartRacer {
         StdDraw.enableDoubleBuffering();
         StdDraw.setCanvasSize(1000, 700);
 
+        //implementation goes here
+        //Todo:
         AbstractFactory factory = new BarFactory();
 
         while (in.hasNextLine()) {
@@ -109,6 +111,8 @@ public class BarChartRacer {
                 entry = in.nextLine();
                 data = entry.split(",");
                 //bars[i] = new Bar(data[1], Integer.parseInt(data[3]), data[4]);
+                //implementation goes here
+                //Todo:
                 bars[i] = factory.getBar(data[1], Integer.parseInt(data[3]), data[4]);
 
                 chart.setCaption(data[0]);
