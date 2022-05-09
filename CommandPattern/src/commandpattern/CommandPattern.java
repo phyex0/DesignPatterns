@@ -6,7 +6,7 @@ package commandpattern;
 
 /**
  *
- * @author MONSTER
+ * @author 18050111043 Halit Burak Yeşildal
  */
 public class CommandPattern {
 

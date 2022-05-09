@@ -2,3 +2,5 @@
 /SimpleFactory/build/
 /CommandPattern/nbproject/private/
 /CommandPattern/build/
+/CommandPattern/dist/
+.idea

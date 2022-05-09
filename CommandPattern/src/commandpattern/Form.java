@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author MONSTER
+ * @author 18050111043 Halit Burak Yeşildal
  */
 public class Form extends javax.swing.JFrame {
 
