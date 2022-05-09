@@ -5,6 +5,8 @@
 package commandpattern.CommandPatternImpl;
 
 import java.util.Scanner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,28 +15,37 @@ import java.util.Scanner;
 public class OpenCommand implements ICommand {
 
     private Document document;
-    private Scanner scanner;
+    private String name;
+    private JTextField input;
+    private JTextArea textArea;
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
 
     public OpenCommand(Document document) {
         this.document = document;
-        this.scanner = new Scanner(System.in);
+
+    }
+
+    public void setInput(JTextField input) {
+        this.input = input;
     }
 
     @Override
     public void execute() {
         String name = this.askUser();
-        document.open(name);
+        textArea.append(document.open(name));
 
     }
 
     @Override
     public void undo() {
-        document.close();
+        textArea.append(document.close());
     }
 
     public String askUser() {
-
-        return scanner.nextLine();
+        return this.name = input.getText().length() > 0 ? input.getText() : "new document";
     }
 
 }

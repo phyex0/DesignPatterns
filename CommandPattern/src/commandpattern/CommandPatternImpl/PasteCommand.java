@@ -4,12 +4,20 @@
  */
 package commandpattern.CommandPatternImpl;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author MONSTER
  */
 public class PasteCommand implements ICommand {
+
     private Document document;
+    private JTextArea textArea;
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
 
     public PasteCommand(Document document) {
         this.document = document;
@@ -17,14 +25,12 @@ public class PasteCommand implements ICommand {
 
     @Override
     public void execute() {
-        document.paste();
+        textArea.append(document.paste());
     }
 
     @Override
     public void undo() {
-        document.cut();
+        textArea.append(document.cut());
     }
-    
-    
-    
+
 }

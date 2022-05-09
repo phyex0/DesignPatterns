@@ -5,27 +5,38 @@
 package commandpattern.CommandPatternImpl;
 
 import java.util.Arrays;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author MONSTER
  */
 public class MacroCommand implements ICommand {
-    
+
+    private JTextArea textArea;
+
+    public void setTextArea(JTextArea textArea) {
+        this.textArea = textArea;
+    }
+
     private ICommand[] commands;
-    
+
     public MacroCommand(ICommand[] commands) {
         this.commands = commands;
     }
-    
+
     @Override
     public void execute() {
+        textArea.selectAll();
+        textArea.replaceSelection("");
         Arrays.stream(commands).forEach(command -> command.execute());
     }
-    
+
     @Override
     public void undo() {
+        textArea.selectAll();
+        textArea.replaceSelection("");
         Arrays.stream(commands).forEach(command -> command.undo());
     }
-    
+
 }

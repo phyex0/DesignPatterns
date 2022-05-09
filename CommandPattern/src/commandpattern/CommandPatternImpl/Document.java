@@ -11,22 +11,22 @@ package commandpattern.CommandPatternImpl;
 public class Document {
 
     public String open(String name) {
-        return name + " is open";
+        return name + " is open\n";
     }
 
     public String close() {
-        return "close";
+        return "close\n";
     }
 
     public String cut() {
-        return "cut";
+        return "cut\n";
     }
 
     public String copy() {
-        return "copy";
+        return "copy\n";
     }
 
     public String paste() {
-        return "paste";
+        return "paste\n";
     }
 }
