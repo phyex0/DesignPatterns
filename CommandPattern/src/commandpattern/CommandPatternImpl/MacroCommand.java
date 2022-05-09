@@ -36,7 +36,8 @@ public class MacroCommand implements ICommand {
     public void undo() {
         textArea.selectAll();
         textArea.replaceSelection("");
-        Arrays.stream(commands).forEach(command -> command.undo());
+        for(int i = commands.length - 1; i >= 0; i--)
+            commands[i].undo();
     }
 
 }

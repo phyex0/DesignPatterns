@@ -46,6 +46,29 @@ public class Form extends javax.swing.JFrame {
 
     }
 
+    private void commandHandler() {
+        String selection = comboBox.getSelectedItem().toString();
+
+        switch (selection) {
+            case "Open":
+                System.out.println("ekmek");
+
+                menuItem.setCommand(openCommand);
+                menu.Add(menuItem);
+                break;
+            case "Paste":
+                menuItem.setCommand(pasteCommand);
+                menu.Add(menuItem);
+                break;
+            case "Macro":
+                menuItem.setCommand(macroCommand);
+                menu.Add(menuItem);
+                break;
+
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,26 +165,8 @@ public class Form extends javax.swing.JFrame {
 
     private void executeUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeUndoActionPerformed
         // TODO add your handling code here:
-        String selection = comboBox.getSelectedItem().toString();
-
-        switch (selection) {
-            case "Open":
-                System.out.println("ekmek");
-                
-                menuItem.setCommand(openCommand);
-                menu.Add(menuItem);
-                menu.click();
-                break;
-            case "Paste":
-                menuItem.setCommand(pasteCommand);
-                menu.Add(menuItem);
-                menu.click();
-                break;
-            case "Macro":
-                menuItem.setCommand(macroCommand);
-                menu.Add(menuItem);
-                menu.click();
-        }
+        this.commandHandler();
+        menu.click();
 
     }//GEN-LAST:event_executeUndoActionPerformed
 
@@ -171,6 +176,8 @@ public class Form extends javax.swing.JFrame {
 
     private void undoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoButtonActionPerformed
         // TODO add your handling code here:
+        this.commandHandler();
+        menu.undoClick();
     }//GEN-LAST:event_undoButtonActionPerformed
 
     /**
